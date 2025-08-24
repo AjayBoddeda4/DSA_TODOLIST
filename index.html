@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DSA To-Do Tracker — LeetCode Linked</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="container">
+    <h1>📚 DSA To-Do Tracker <span class="tag">LeetCode Linked</span></h1>
+    <p class="sub">Click a linked task to open the problem on LeetCode in a new tab. Progress autosaves locally.</p>
+    <div class="toolbar">
+      <input id="search" type="text" placeholder="Search tasks (e.g., 'Kadane', '#704', 'Trie', 'Knapsack')" />
+      <button id="expandAll">Expand all</button>
+      <button id="collapseAll">Collapse all</button>
+      <button id="exportBtn">Export</button>
+      <input id="importFile" type="file" accept="application/json" hidden />
+      <button id="importBtn">Import</button>
+      <button id="resetBtn" class="danger">Reset</button>
+    </div>
+    <div id="globalProgress" class="global-progress"></div>
+  </header>
+
+  <main id="app" class="container"></main>
+
+  <footer class="container foot">
+    <p>Built for you — works offline. Your progress is stored in localStorage.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
