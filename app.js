@@ -1,4 +1,4 @@
-// App with LeetCode links
+// App with LeetCode links + Concept tags
 const LINKS = {
   "#1 Two Sum": "https://leetcode.com/problems/two-sum/",
   "#283 Move Zeroes": "https://leetcode.com/problems/move-zeroes/",
@@ -114,7 +114,7 @@ const DATA = [
 ];
 
 const slug = (s)=>s.toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/(^-|-$)/g,"");
-const storeKey="dsa-todo-progress-v2";
+const storeKey="dsa-todo-progress-v3";
 
 function render(){
   const app=document.getElementById("app"); app.innerHTML="";
@@ -135,8 +135,13 @@ function render(){
       const cb=document.createElement("input"); cb.type="checkbox"; cb.checked=!!JSON.parse(localStorage.getItem(storeKey)||"{}")[id];
       const label=document.createElement("div"); label.className="label";
       label.innerHTML=item.replace(/(#\\d+)/g,'<span class="kbd">$1</span>');
-      if(LINKS[item]){ const a=document.createElement("a"); a.href=LINKS[item]; a.target="_blank"; a.rel="noopener"; a.className="link leet"; a.textContent="Open in LeetCode ↗"; label.appendChild(a); }
-      else if(/Rat in a Maze/.test(item)){ const a=document.createElement("a"); a.href="https://www.geeksforgeeks.org/rat-in-a-maze/"; a.target="_blank"; a.rel="noopener"; a.className="link ext"; a.textContent="GFG ↗"; label.appendChild(a); }
+      if(LINKS[item]){
+        const a=document.createElement("a"); a.href=LINKS[item]; a.target="_blank"; a.rel="noopener"; a.className="link leet"; a.textContent="Open in LeetCode ↗"; label.appendChild(a);
+      } else if(/Rat in a Maze/.test(item)){
+        const a=document.createElement("a"); a.href="https://www.geeksforgeeks.org/rat-in-a-maze/"; a.target="_blank"; a.rel="noopener"; a.className="link ext"; a.textContent="GFG ↗"; label.appendChild(a);
+      } else {
+        const span=document.createElement("span"); span.className="link concept"; span.textContent="📘 Learn Algorithm"; label.appendChild(span);
+      }
       cb.addEventListener("change",()=>{
         const st=JSON.parse(localStorage.getItem(storeKey)||"{}"); st[id]=cb.checked; localStorage.setItem(storeKey, JSON.stringify(st));
         updateSectionProgress(secId); updateGlobalProgress();

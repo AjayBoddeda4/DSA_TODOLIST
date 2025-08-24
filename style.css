@@ -43,6 +43,7 @@ ul.task-list{list-style:none; padding:4px 0 2px; margin:0}
 .link:hover{filter:brightness(1.2)}
 .leet{color:#b8ffd8; background:rgba(74,222,128,.08)}
 .ext{color:#ffd5b8; background:rgba(255,170,102,.08)}
+.concept{color:#cce1ff; background:rgba(96,165,250,.10)}
 
 .foot{color:var(--muted); font-size:13px; text-align:center; padding-bottom:32px}
 .show{display:block}
